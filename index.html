@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>GCCP PROJECT</title>
+</head>
+
+<body>
+    <main>
+   <div>
+        <h1>GCCP | Project</h1>
+        <p>A ML number preditor</p>
+   </div>
+
+        <form id="uploadForm">
+            <h1>Upload Image</h1>
+            <input type="file" class="custom-file-input" name="file" id="fileInput" />
+            <button type="submit" >Upload</button>
+        </form>
+
+        <div id="response"></div>
+    </main>
+
+
+    <script>
+        const form = document.querySelector("#uploadForm");
+        const responseDiv = document.querySelector("#response");
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const fileInput = document.querySelector("#fileInput");
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append("file", file);
+
+            fetch("https://getprediction-gzrkj7ydfa-uc.a.run.app", {
+                method: "POST",
+                body: formData,
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    responseDiv.innerHTML =
+                        "The predicted number is " + JSON.stringify(data).slice(14, 15);
+                });
+        });
+    </script>
+</body>
+
+</html>
