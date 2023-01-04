@@ -4,6 +4,7 @@
     margin: 0%;
     padding: 0%;
     font-family: 'Nunito', sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -109,14 +110,32 @@ input[type="file"] {
 /* section - doenload */
 
 #download {
+        margin-top: 10px;
     min-height: 300px;
     width: 100%;
 }
-#download .dowload_div{
+
+#download .dowload_div {
     width: 300px;
     height: 50px;
     margin: auto;
     background-color: #fedada;
-        padding:0px 20px;
-        border-radius: 20px;
+    padding: 0px 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#download .dowload_div a {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    color: #2e1a35;
+    font-weight: 700;
+}
+
+#download .dowload_div a img {
+    height: 20px;
+    width: 20px;
 }
