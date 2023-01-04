@@ -5,25 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.lordicon.com/fudrjiwc.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>GCCP PROJECT</title>
 </head>
 
 <body>
     <main>
-   <div>
-        <h1>GCCP | Project</h1>
-        <p>A ML number preditor</p>
-   </div>
+        <div>
+            <h1>GCCP | Project</h1>
+            <p>A ML number preditor</p>
+        </div>
 
         <form id="uploadForm">
             <h1>Upload Image</h1>
             <input type="file" class="custom-file-input" name="file" id="fileInput" />
-            <button type="submit" >Upload</button>
+            <button type="submit">Upload</button>
         </form>
 
         <div id="response"></div>
+        <div>Download sample pics</div>
+
+        <a href="#download"><lord-icon src="https://cdn.lordicon.com/albqovim.json" trigger="loop" delay="500"
+                colors="primary:#fedada" state="hover-1" style="width:32px;height:32px">
+            </lord-icon></a>
     </main>
+    <section id="download">
+        <div class="dowload_div"></div>
+    </section>
 
 
     <script>
