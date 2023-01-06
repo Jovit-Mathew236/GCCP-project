@@ -20,8 +20,8 @@
 
         <form id="uploadForm">
             <h1>Upload Image</h1>
-            <input type="file" class="custom-file-input" name="file" id="fileInput" />
-            <button type="submit">Upload</button>
+            <input type="file" class="custom-file-input" name="file" id="fileInput" required />
+            <button id="sub-btn" type="submit">Upload</button>
         </form>
 
         <div id="response">
@@ -47,6 +47,7 @@
     <script>
         const form = document.querySelector("#uploadForm");
         const responseDiv = document.querySelector("#response");
+        const uploadbtn = document.getElementById("sub-btn")
         form.addEventListener("submit", function (event) {
             event.preventDefault();
 
@@ -55,6 +56,7 @@
             const formData = new FormData();
             formData.append("file", file);
 
+            uploadbtn.innerHTML = "Proccessing..."
             fetch("https://getprediction-gzrkj7ydfa-uc.a.run.app", {
                 method: "POST",
                 body: formData,
@@ -63,7 +65,10 @@
                 .then((data) => {
                     responseDiv.innerHTML =
                         "The predicted number is " + JSON.stringify(data).slice(14, 15);
-                });
+                })
+                .then(() => {
+                    uploadbtn.innerHTML = "Upload"
+                })
         });
     </script>
 </body>
