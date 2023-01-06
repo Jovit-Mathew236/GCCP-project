@@ -56,7 +56,9 @@
             const formData = new FormData();
             formData.append("file", file);
 
-            uploadbtn.innerHTML = "Proccessing..."
+            if(file !== undefined){
+                uploadbtn.innerHTML = "Proccessing..."
+            }
             fetch("https://getprediction-gzrkj7ydfa-uc.a.run.app", {
                 method: "POST",
                 body: formData,
